@@ -2,6 +2,7 @@ const capitalize = require('./capitalize.js');
 const reverseString = require('./reverseString.js');
 const calculator = require('./calculator.js');
 const caesarCipher = require('./caesarCipher.js');
+const analyzeArray = require('./analyzeArray.js');
 
 
 test('Takes a string and returns it with the first character capitalized', () => {
@@ -36,3 +37,38 @@ describe('Calculator', () => {
 test('Function that takes a string and a shift factor and returns it with each character “shifted”', () => {
     expect(caesarCipher('Hello, World!', 3)).toBe("KHOOR, ZRUOG!")
 })
+
+
+describe('analyzeArray', () => {
+    test('Returns correct analysis for an array of numbers', () => {
+      const numbers = [1, 2, 3, 4, 5];
+      const result = analyzeArray(numbers);
+      expect(result).toEqual({
+        average: 3,
+        min: 1,
+        max: 5,
+        length: 5
+      });
+    });
+
+    test('Handles empty array', () => {
+        const result = analyzeArray([]);
+        expect(result).toEqual({
+        average: 0,
+        min: undefined,
+        max: undefined,
+        length: 0
+    });
+});
+
+    test('Handles non-array input', () => {
+        const result = analyzeArray('Not an array');
+        expect(result).toEqual({
+        average: 0,
+        min: undefined,
+        max: undefined,
+        length: 0
+        });
+    });
+});
+
