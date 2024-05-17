@@ -1,6 +1,8 @@
-const capitalize = require('./capitalize.js')
-const reverseString = require('./reverseString.js')
-const calculator = require('./calculator.js')
+const capitalize = require('./capitalize.js');
+const reverseString = require('./reverseString.js');
+const calculator = require('./calculator.js');
+const caesarCipher = require('./caesarCipher.js');
+
 
 test('Takes a string and returns it with the first character capitalized', () => {
     expect(capitalize()).toBe("Hello")
@@ -10,6 +12,7 @@ test('Takes a string and returns it with the first character capitalized', () =>
 test('Takes a string and returns it reversed', () => {
     expect(reverseString()).toBe("olleh")
 });
+
 
 describe('Calculator', () => {
     test('Adds 1 + 2', () => {
@@ -30,3 +33,6 @@ describe('Calculator', () => {
 });
 
 
+test('Function that takes a string and a shift factor and returns it with each character “shifted”', () => {
+    expect(caesarCipher('Hello, World!', 3)).toBe("KHOOR, ZRUOG!")
+})
